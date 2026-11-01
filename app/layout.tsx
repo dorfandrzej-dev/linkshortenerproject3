@@ -14,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LinkShortenerProject",
-  description: "Authentication-ready link shortener built with Next.js and Clerk",
+  title: "Shortly — Simple link management",
+  description:
+    "Turn long URLs into tidy links and keep everything together in your personal link workspace.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
