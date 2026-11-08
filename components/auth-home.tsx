@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import {
   ArrowDown,
   ArrowRight,
@@ -15,6 +17,7 @@ import {
   SignInButton,
   SignUpButton,
   UserButton,
+  useAuth,
 } from "@clerk/nextjs";
 import Link from "next/link";
 
@@ -28,6 +31,15 @@ import {
 } from "@/components/ui/card";
 
 export function AuthHome() {
+  const { isLoaded, isSignedIn } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (isLoaded && isSignedIn) {
+      router.replace("/dashboard");
+    }
+  }, [isLoaded, isSignedIn, router]);
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#090c0a] text-white">
       <div
